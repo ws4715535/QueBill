@@ -8,17 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    let dataStore: AccountDataStore
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        RootView(dataStore: dataStore)
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(dataStore: AccountDataStore())
 }

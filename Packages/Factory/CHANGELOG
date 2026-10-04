@@ -1,0 +1,317 @@
+# Factory Changelog
+
+## 2.5.3
+
+* Fix unique scope resolution issue on container with non-unique default scope - PR #307
+* Container.reset should also reset defaultScope and promiseTriggersError
+
+## 2.5.2
+
+* CocoaPods update for Factory, no FactoryTesting support
+
+## 2.5.1
+
+* Update preview helpers for both Containers and Factory's
+* Additional documentation for SwiftUI and SwiftUI Previews
+
+## 2.5.0
+
+* Migration of import library name from Factory to FactoryKit (See README)
+* Supports ParameterFactory service caching based on parameters (scopeOnParameters)
+* FactoryKit library change corrects XCFramework build problems - Issue #252
+
+## 2.4.13
+
+* Supports ParameterFactory service caching based on parameters (scopeOnParameters)
+
+## 2.4.12
+
+* Add mock convenience function to SharedContainer for SwiftUI Previews
+* New mechanism to enable StrictConcurrency in targets
+
+## 2.4.11
+
+* Pulled evolution support due to SPM .unsafe flags problem - Issue #289
+* Same for strict concurrency check flags when building Factory module
+* Add FactoryTesting library to Package.swift - PR #290 - DERP
+* Fix typos in readme and documentation - PR #291
+
+## 2.4.10
+
+* Enables library evolution support on release builds - Issue #278
+* Potential fix for differing ObjectIdentifiers for the same Factory when working across modules - Issue #277
+* Enables strict concurrency check flags when building Factory module
+* Miscellaneous code cleanup around globalVariableLock and eliminates globalDebugInformationMap
+
+## 2.4.9
+
+* Fix @Injected Unable to Satisfy Sendable Conformance error - Issue #248
+
+## 2.4.8
+
+* Fix context issue where GitHub onTest cases were failing - Issue #288
+
+## 2.4.7
+
+* Add support for different isolations in ContainerTrait - PR #287
+
+## 2.4.6
+
+* Introduce FactoryTesting to fix build errors - PR #285
+* Add @TaskLocal to Container.shared, create ContainerTrait - PR #272
+* Add inline registration sugar to ContainerTrait and fix parallelization - Per #283
+* Add support to enable SuiteTrait - PR #284
+* Add trait with registration - Per #280
+
+## 2.4.5
+
+* Updated trace log to differentiate between new instances from Factory (F), register (R), and onContexts (O) - Issue #267
+* Adds InjectObservable property wrapper to better support Observation-based Observables - Per #266
+* Fixed non-functional file and line parameters in resetAndTriggerFatalError - PR #142
+* Fix Documentation Typos - PR #253
+
+## 2.4.4
+
+* Fix warning when annotating context factories with @MainActor - Issue #256
+* Fix failure to build XCFramework - Issue #252
+* Typo in README - Issue #259
+
+## 2.4.3
+* Conditional code support to fix isolated(any) issue - Issue #250
+
+## 2.4.2
+* Adds isolated(any) in order to properly resolve actor-isolated Factory's
+
+## 2.4.1
+* Adds DynamicProperty wrapper - PR #220
+
+## 2.4.0
+* Updated to properly manage new concurrency warnings and errors in Xcode 16 and Swift 6
+* Updated documentation in light of Xcode 16's new Swift Testing framework
+* Fixes issue with Promised generating errors during Previews
+
+## 2.3.2
+
+* Project updated CocoaPods to 1.15.2
+* Public aliases for masked Factory objects - Issue #154
+* Fix key issue when building xcframeworks - Issue #173
+* Add VisionOS target to package.swift - PR #186
+* Add Privacy Manifest file - PR #180
+* Update README to include example for use with Swift's new Observable macro - PR #172
+
+## 2.3.1
+
+* Fix for SpinLock on Linux
+* Add action to test linux - Issue #113
+* Add various aliases to avoid external naming conflicts - Issue #154
+
+## 2.3.0
+
+* Dramatic performance enhancements:
+  Up to 200% faster in debug builds!
+  Up to 400% faster in production builds!
+* Fixed bug where registering a context in the Factory definition cleared the scope cache. - Issue #146
+  Note that issue #146 could be a breaking change if your code attempts to replace a scoped context registration.
+  Add a manual reset.
+    Container.shared.myService.reset(.scope).onTest { MockService() }
+  See The Factory Wins section in the Modifiers documentation for more on this.
+* Update trace output to also show actual instance type
+
+## 2.2.1
+
+* Fix resetAndTriggerFatalError was not forwarding the file and line parameters to triggerFatalError. - Issue #133
+* Add Promised ParameterFactory - Issue #133
+
+## 2.2.0
+
+* Converts "shared" container variables from var to let. - Issue #111
+* Add convenience reset() function to container. - Issue #111
+  Note that issue #111 could be a breaking change if your code attempts to "replace" a shared container. Do reset instead.
+    Container.shared.reset() // Do this...
+    Container.shared = Container() // Not this...
+* Removes @MainActor from @InjectedObject property wrapper variables. - Issue #107
+* Fix registering a new context doesn't clear existing cache as did register. - Issue #114
+* Fix FactoryContext not public. - Issue #116
+* Update Modular Application documentation. - Issue #121
+* Adds $service.resolvedOrNil() function to LazyInjected and WeakLazyInjected. - Issue #122
+* Adds keypath-based global resolutions functions for shared containers.
+* Removes func register(scope:factory:) function deprecated in 2.1
+  Use container.service.scope(.cached).register { Service() } instead.
+
+## 2.1.5
+
+* Adds TimeToLive to scoped instances.
+
+## 2.1.4
+
+* Fix singletons in multiple modules keyed with same type and name. - Issue #99
+* Fix building on Linux. - Issue #100
+
+## 2.1.3
+
+* Fix singleton scope issue with SharedContainer across multiple container types. - Issue #92
+* Fix unit test context to detect when run from command line. - Issue #94
+* Fix where new registration on Factory also clears singleton cache. - Issue #96
+* Minor update to trace logging for better presentation of nil optionals
+
+## 2.1.2
+
+* Fix tag issue on github
+
+## 2.1.1
+
+* Fix build error in SPM
+
+## 2.1.0
+
+* Contexts allow quick and easy Factory customization when doing previews, debugging and testing.
+* Provides once modifier which allows one-time initialization on a per-Factory basis.
+* Let's you define the default scope used for a given container.
+* Allows you to specify promised optionals that warn when registrations are not provided.
+* Singletons now span containers and are cached separately.
+* Factory library now implemented across multiple files.
+
+## 2.0.3
+
+* AutoRegister should be retriggered after resetting registrations.
+
+## 2.0.2
+
+* Registration on a new container could be overridden by auto registration on same Factory
+* Some internal code reorganization for performance
+
+### 2.0.1
+
+* Minor issue in that new scope registration function doesn't allow scope to be set to unique
+* Add watchos.deployment_target = "8.2" - Issue #54
+
+### 2.0.0
+
+* Adds true Factory containers for container-based dependency resolution
+* Adds container-based scopes
+* Adds decorators to containers and factories
+* Adds debug trace support
+* Adds ability to specify scope during dependency assembly and registration
+* Adds keyPath-based property wrappers
+* Adds a new InjectedObject property wrapper for SwiftUI Views
+* Fixes circular dependency check when same class name used in separate modules.
+
+### 1.3.5
+
+* Adds specific reset options to factories and property wrappers
+
+### 1.3.4
+
+* Add resolve() function to property wrappers to trigger immediate resolution.
+
+### 1.3.3
+
+* Minor bug fix in circular dependency check to reset chain on error
+
+### 1.3.2
+
+* Increase unit test code coverage to 100%
+
+### 1.3.1
+
+* Increase unit test code coverage to 98.8%
+
+### 1.3.0
+
+* Added support for Graph scopes
+* Added Circular Dependency Detection checks when running in DEBUG mode
+* Fixed issue with shared scope failing in iOS 14.x and earlier - Issue #43
+
+### 1.2.9
+
+* Add an registration endpoint that's called prior to first service resolution.
+
+### 1.2.8
+
+* Cocoapods Support
+
+### 1.2.7
+
+* Fixed shared caching behavior with value-based protocols
+
+### 1.2.6
+
+* Fixed shared caching issue with non-optional protocol types
+* Fixed type problem with WeakLazyInjected and protocol types
+
+### 1.2.5
+
+* Added WeakLazyInjected property wrapper for parent child relationships
+
+### 1.2.4
+
+* Recursive lock required in scope resolution
+
+### 1.2.3
+
+* Streamline critical path through scope caching mechanism
+
+### 1.2.2
+
+* Fix issue with optional nil lazy injection
+
+### 1.2.1
+
+* Fix issue with shared scope when type was optional
+
+### 1.2.0 - Stable release
+
+* Revised structure to better support ParameterFactory
+* Returned to more aggressive locking mechanisms
+* Revised caching code to eliminate multiple locks
+* Changes decorator behavior in favor of a single common decorator for new and cached instances
+
+### 1.1.0
+
+* Adds ParameterFactory to provide type-safe argument passing
+
+### 1.0.9
+
+* Condition per-platform locking strategy
+* Added multithreaded test case
+
+### 1.0.8
+
+* Revised locking strategy for improved performance
+
+### 1.0.7
+
+* Fixed issue with factories of the same type
+
+### 1.0.6
+
+* Fixed issue with caching optional types
+
+### 1.0.5
+
+* Fixed unneeded Factory retention in Injected Property Wrapper
+* Some internal name changes
+* Added Multiple Module examples in demo project
+
+### 1.0.4
+
+* Optimize creation of factory cache id
+
+### 1.0.3
+
+* Streamline handling of optionals in registered
+
+### 1.0.2
+
+* Refactored common scope cache mechanism
+* Allow global scope cache resets
+
+### 1.0.1
+
+* Improves performance on happy path factory resolution code
+* Splits decorator into distinct cached and created decorators
+* Fixes Registration.pop() to do nothing if stack is empty
+
+### 1.0.0
+
+* Initial Open Source Release

@@ -13,6 +13,10 @@
 		54A5672B2EA7D02E00BE897E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54A567272EA7D02E00BE897E /* Assets.xcassets */; };
 		54A5672C2EA7D02E00BE897E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A567282EA7D02E00BE897E /* ContentView.swift */; };
 		54A5672D2EA7D02E00BE897E /* QueBillApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A567292EA7D02E00BE897E /* QueBillApp.swift */; };
+		BB0000000000000000000001 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = CC0000000000000000000001 /* GRDB */; };
+		BB0000000000000000000002 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = CC0000000000000000000002 /* PopupView */; };
+		BB0000000000000000000003 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = CC0000000000000000000003 /* Factory */; };
+		BB0000000000000000000004 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = CC0000000000000000000004 /* SwiftUICharts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,11 +48,23 @@
 		54A567292EA7D02E00BE897E /* QueBillApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueBillApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		AA0000000000000000000001 /* QueBill/AppSources */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = QueBill/AppSources;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		549175232EA7C2AD00B4FFDF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB0000000000000000000001 /* GRDB in Frameworks */,
+				BB0000000000000000000002 /* PopupView in Frameworks */,
+				BB0000000000000000000003 /* Factory in Frameworks */,
+				BB0000000000000000000004 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +88,7 @@
 		5491751D2EA7C2AD00B4FFDF = {
 			isa = PBXGroup;
 			children = (
+				AA0000000000000000000001 /* QueBill/AppSources */,
 				54A5672A2EA7D02E00BE897E /* QueBill */,
 				54A567302EA7D29900BE897E /* Frameworks */,
 				549175272EA7C2AD00B4FFDF /* Products */,
@@ -251,8 +268,15 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				AA0000000000000000000001 /* QueBill/AppSources */,
+			);
 			name = QueBill;
 			packageProductDependencies = (
+				CC0000000000000000000001 /* GRDB */,
+				CC0000000000000000000002 /* PopupView */,
+				CC0000000000000000000003 /* Factory */,
+				CC0000000000000000000004 /* SwiftUICharts */,
 			);
 			productName = QueBill;
 			productReference = 549175262EA7C2AD00B4FFDF /* QueBill.app */;
@@ -331,6 +355,10 @@
 			mainGroup = 5491751D2EA7C2AD00B4FFDF;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				DD0000000000000000000001 /* XCLocalSwiftPackageReference "Packages/GRDB" */,
+				DD0000000000000000000002 /* XCLocalSwiftPackageReference "Packages/PopupView" */,
+				DD0000000000000000000003 /* XCLocalSwiftPackageReference "Packages/Factory" */,
+				DD0000000000000000000004 /* XCLocalSwiftPackageReference "Packages/SwiftUICharts" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 549175272EA7C2AD00B4FFDF /* Products */;
@@ -543,6 +571,7 @@
 				DEVELOPMENT_TEAM = JWNGZ2Y3DW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "雀庄运营系统";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -556,7 +585,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ws.QueBill;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -571,6 +601,7 @@
 				DEVELOPMENT_TEAM = JWNGZ2Y3DW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "雀庄运营系统";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -584,7 +615,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ws.QueBill;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -602,7 +634,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ws.QueBillTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QueBill.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/QueBill";
 			};
@@ -621,7 +654,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ws.QueBillTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QueBill.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/QueBill";
 			};
@@ -638,7 +672,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ws.QueBillUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = QueBill;
 			};
@@ -655,7 +690,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ws.QueBillUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = QueBill;
 			};
@@ -701,6 +737,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		DD0000000000000000000001 /* XCLocalSwiftPackageReference "Packages/GRDB" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/GRDB;
+		};
+		DD0000000000000000000002 /* XCLocalSwiftPackageReference "Packages/PopupView" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/PopupView;
+		};
+		DD0000000000000000000003 /* XCLocalSwiftPackageReference "Packages/Factory" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Factory;
+		};
+		DD0000000000000000000004 /* XCLocalSwiftPackageReference "Packages/SwiftUICharts" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/SwiftUICharts;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CC0000000000000000000001 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD0000000000000000000001 /* XCLocalSwiftPackageReference "Packages/GRDB" */;
+			productName = GRDB;
+		};
+		CC0000000000000000000002 /* PopupView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD0000000000000000000002 /* XCLocalSwiftPackageReference "Packages/PopupView" */;
+			productName = PopupView;
+		};
+		CC0000000000000000000003 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD0000000000000000000003 /* XCLocalSwiftPackageReference "Packages/Factory" */;
+			productName = Factory;
+		};
+		CC0000000000000000000004 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD0000000000000000000004 /* XCLocalSwiftPackageReference "Packages/SwiftUICharts" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5491751E2EA7C2AD00B4FFDF /* Project object */;
 }

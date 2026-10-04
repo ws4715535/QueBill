@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct QueBillApp: App {
+    @State private var dataStore = AccountDataStore()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(dataStore: dataStore)
         }
     }
 }
